@@ -70,3 +70,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'pg' # instalamos postgresql
+gem 'base64' # resolvimos warning de base64
+gem 'bigdecimal' # resolvimos warning de bigdecimal
+gem 'mutex_m' # resolvimos warning de bigdecimal
+gem 'drb' # resolvimos warning de drb

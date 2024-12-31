@@ -76,3 +76,4 @@ gem 'base64' # resolvimos warning de base64
 gem 'bigdecimal' # resolvimos warning de bigdecimal
 gem 'mutex_m' # resolvimos warning de bigdecimal
 gem 'drb' # resolvimos warning de drb
+gem 'sidekiq' # instalamos sidekiq

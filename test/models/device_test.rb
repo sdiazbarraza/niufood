@@ -19,4 +19,16 @@ class DeviceTest < ActiveSupport::TestCase
     @device.restaurant = nil    
     assert_not @device.valid?
   end
+
+  test "should not be valid with invalid status" do
+    @device.status = "invalid_status"
+    assert_not @device.valid?
+    assert_includes @device.errors[:status], "invalid_status no es válido para status"
+  end
+
+  test "should be valid with status maintenance" do
+    @device.status = "maintenance"
+    assert @device.valid?
+  end
+
 end

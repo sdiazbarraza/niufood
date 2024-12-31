@@ -4,4 +4,7 @@ class Device < ApplicationRecord
   
   validates :name, presence: true
   validates :status, presence: true
+
+  validates :status, presence: true, inclusion: { in: %w(maintenance active), message: "%{value} no es válido para status" }
+
 end

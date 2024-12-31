@@ -1,0 +1,26 @@
+<h1>Lista de dispositivos por Restaurant</h1>
+
+<% if @devices.any? %>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Restaurant</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @devices.each do |device| %>
+        <tr>
+          <td><%= device.restaurant.name %></td>
+          <td><%= device.name %></td>
+            <td class="<%= device.status == 'active' ? 'text-success' : device.status == 'maintenance' ? 'text-danger' : '' %>">
+            <%= device.status %>
+            </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No hay dispositivos disponibles.</p>
+<% end %>

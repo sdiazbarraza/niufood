@@ -3,7 +3,7 @@ class Device < ApplicationRecord
   has_many :registers, dependent: :destroy
 
   after_save :create_register
-  
+  after_destroy :delete_status_device
   validates :name, presence: true
   validates :status, presence: true
 
@@ -13,5 +13,9 @@ class Device < ApplicationRecord
   private
     def create_register
       Register.create(device: self, status: self.status)
+    end
+
+    def delete_status_device
+      Register.create(device: self, status: "deleted")
     end
 end

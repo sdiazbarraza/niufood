@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
     def index
-        @devices = Device.all
+        @restaurants = Restaurant.all
+        @devices = @restaurants.map(&:devices).flatten
     end
 end

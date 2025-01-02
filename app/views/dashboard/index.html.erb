@@ -1,3 +1,28 @@
+<h1>Lista de Restaurantes</h1>
+
+<% if @restaurants.any? %>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.name %></td>
+            <td class="<%= restaurant.status == 'operativo' ? 'text-success' : restaurant.status == 'warning'  ? 'text-warning' : restaurant.status == 'problema'  ? 'text-danger': '' %>">
+            <%= restaurant.status %>
+            </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No hay dispositivos disponibles.</p>
+<% end %>
+
 <h1>Lista de dispositivos por Restaurant</h1>
 
 <% if @devices.any? %>

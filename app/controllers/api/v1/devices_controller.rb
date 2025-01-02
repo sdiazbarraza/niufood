@@ -4,6 +4,7 @@ module Api
         skip_before_action :verify_authenticity_token
 
         before_action :set_device, only: [:update, :destroy]
+        after_action :update_restaurant_status, only: [:create, :update]
         # POST /api/v1/devices
         def create
             @device = Device.new(device_params)
@@ -29,14 +30,18 @@ module Api
         end
   
         private
-  
-        def set_device
-          @device = Device.find(params[:id])
-        end
-  
-        def device_params
-            params.require(:device).permit(:name, :status, :restaurant_id)
-        end
+          
+          def set_device
+            @device = Device.find(params[:id])
+          end
+    
+          def device_params
+              params.require(:device).permit(:name, :status, :restaurant_id)
+          end
+
+          def update_restaurant_status
+            UpdateRestaurantStatusJob.perform_async(@device.restaurant_id)
+          end
       end
     end
   end

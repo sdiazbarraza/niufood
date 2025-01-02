@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     end
   end
   root 'dashboard#index' 
+  
+  get '/registers', to: 'register#index'
 end

@@ -16,6 +16,7 @@ La aplicación consta de cuatro partes:
 
 ## Crear el usuario niufood como superuser
 `sudo -u postgres psql`
+
 `CREATE USER niufood WITH SUPERUSER PASSWORD 'niufood';`
 
 ## Instalar redis 6 o superior

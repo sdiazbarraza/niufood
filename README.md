@@ -14,8 +14,15 @@ La aplicación consta de cuatro partes:
 
 # Configuraciones previas
 
+## Versiones
+
+* Ruby: 3.3.6
+* Rails: 7.0.8.7
+* Sidekiq: 7.3.7
+
 ## Crear el usuario niufood como superuser
 `sudo -u postgres psql`
+
 `CREATE USER niufood WITH SUPERUSER PASSWORD 'niufood';`
 
 ## Instalar redis 6 o superior
